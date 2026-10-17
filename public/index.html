@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#150a30">
+  <title>Gran Rifa Extraordinaria</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="hero">
+    <h1>¡Gran rifa extraordinaria!</h1>
+    <p class="premio">
+      <span class="premio-label">Premio mayor</span>
+      <span class="premio-valor" id="premio">$200.000</span>
+    </p>
+    <div class="informacion-pago" style="background-color: #f8f9fa; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; margin-bottom: 20px; text-align: center;">
+  <h3 style="margin-top: 0; color: #2d3748;">📱 Métodos de Pago</h3>
+  <p style="margin: 5px 0;">Para confirmar tu puesto, realiza el pago a través de Nequi o Daviplata</p>
+  <p style="margin: 5px 0; font-weight: bold; font-size: 1.1em; color: #2b6cb0;">
+    Nequi / Daviplata: <span style="color: #2d3748;">3202717905 o llave:@3202717905</span>
+  </p>
+  <p style="font-size: 0.9em; color: #718096; margin-top: 5px;">
+    Envía el comprobante con tu número de puesto para validar la reserva.
+  </p>
+</div>
+    <dl class="datos">
+      <div><dt>Sorteo</dt><dd id="fecha"></dd></div>
+      <div><dt>Dos últimas cifras de la</dt><dd id="loteria"></dd></div>
+      <div><dt>Puestos 1 a 32</dt><dd id="precio"></dd></div>
+      <div><dt>Puesto 33, juego de 4 números</dt><dd id="precio-esp"></dd></div>
+    </dl>
+    <p class="lugar" id="lugar" hidden></p>
+  </header>
+
+  <section id="adminbar" class="adminbar" hidden aria-label="Modo organizador">
+    <p class="adminbar-t">Modo organizador</p>
+    <p class="adminbar-n"><strong id="a-recaudado"></strong> recaudado</p>
+    <p class="adminbar-n"><strong id="a-cobrar"></strong> por cobrar</p>
+    <div class="adminbar-b">
+      <a class="btn btn-sec" href="/api/admin/export.csv">Descargar para Excel</a>
+      <button type="button" class="btn btn-sec" id="btn-salir">Salir</button>
+    </div>
+  </section>
+
+  <main>
+    <section class="resumen" aria-live="polite">
+      <p><strong id="n-libres">0</strong> libres</p>
+      <p data-admin-only hidden><strong id="n-debe">0</strong> por pagar</p>
+      <p data-admin-only hidden><strong id="n-pagados">0</strong> pagados</p>
+    </section>
+
+    <div class="barra">
+      <label class="buscar">
+        <span class="sr">Buscar por nombre, puesto o número</span>
+        <input type="search" id="buscar" placeholder="Busca el puesto o número" autocomplete="off">
+      </label>
+      <div class="filtros" role="group" aria-label="Filtrar puestos" hidden>
+        <button type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+        <button type="button" data-filtro="libre" aria-pressed="false">Libres</button>
+        <button type="button" data-filtro="debe" aria-pressed="false">Debe</button>
+        <button type="button" data-filtro="verificar" aria-pressed="false">Por verificar</button>
+        <button type="button" data-filtro="pagado" aria-pressed="false">Pagados</button>
+      </div>
+    </div>
+
+    <ul id="grid" class="grid"></ul>
+    <p id="vacio" class="vacio" hidden>Ningún puesto coincide con tu búsqueda.</p>
+    <p id="error-carga" class="vacio" hidden>No se pudo cargar el tablero. Recarga la página.</p>
+  </main>
+
+  <footer class="pie">
+    <p id="contacto" hidden></p>
+    <p class="pie-s">Toca un puesto libre para apartarlo. El organizador confirma cada pago.</p>
+    <button type="button" class="link" id="btn-organizador">Soy el organizador</button>
+  </footer>
+
+  <dialog id="dlg" aria-modal="true"></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+
+  
+</body>
+</html>
