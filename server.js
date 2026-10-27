@@ -20,7 +20,7 @@ const CONFIG = {
   precio: 30000,
   precioEspecial: 40000,
   loteria: 'Lotería de Boyacá',
-  fecha: process.env.FECHA_SORTEO || 'Sábado 24 de octubre',
+  fecha: process.env.FECHA_SORTEO || ' Sabado 14 de Noviembre',
   lugarHora: process.env.LUGAR_HORA || '',
   contacto: process.env.CONTACTO || '',
   datosPago: process.env.DATOS_PAGO || 'Nequi o Daviplata: 320 271 7905\nLlave: @3202717905',
