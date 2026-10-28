@@ -17,8 +17,8 @@ if (!process.env.SESSION_SECRET) console.warn('AVISO: falta SESSION_SECRET; la s
 const CONFIG = {
   titulo: 'Gran Rifa Extraordinaria',
   premio: 200000,
-  precio: 30000,
-  precioEspecial: 40000,
+  precio: 35000,
+  precioEspecial: 45000,
   loteria: 'Lotería de Boyacá',
   fecha: process.env.FECHA_SORTEO || ' Sabado 14 de Noviembre',
   lugarHora: process.env.LUGAR_HORA || '',
